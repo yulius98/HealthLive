@@ -2984,9 +2984,9 @@ textarea.form-control-lg {
 .btn-outline-primary {
   --bs-btn-color: #2937f0;
   --bs-btn-border-color: #2937f0;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #2937f0;
-  --bs-btn-hover-border-color: #2937f0;
+  --bs-btn-hover-color: #12452c;
+  --bs-btn-hover-bg: #12452c;
+  --bs-btn-hover-border-color: #12452c;
   --bs-btn-focus-shadow-rgb: 41, 55, 240;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #2937f0;
@@ -10843,7 +10843,7 @@ html {
 }
 
 .text-gradient {
-  background: -webkit-linear-gradient(#2937f0, #9f1ae2);
+  background: -webkit-linear-gradient(#12452c, #C7E8C2);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

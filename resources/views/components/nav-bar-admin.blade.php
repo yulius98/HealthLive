@@ -14,7 +14,7 @@
                 <li class="nav-item"><a class="nav-link me-lg-3" href="/dashboard_paket">Tambah Paket</a></li>
                 
             </ul>
-            <a href="logout" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" >
+            <a href="/Logout" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" >
                 <span class="d-flex align-items-center">
                     <span class="small">Logout</span>
                 </span>

@@ -117,7 +117,32 @@
                         <td>{{ $value->nama_paket }}</td>
                         <td>{{ $value->harga }}</td>
                         <td>{{ $value->deskripsi }}</td>
-                        <td>{{ $value->panduan_paket }}</td>
+                        @if ($value->panduan_paket != null)
+                            <td>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4 2h10l6 6v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#f44336"/>
+                                    <path d="M14 2v6h6" fill="#c62828"/>
+                                    <text x="6" y="17" font-size="6" fill="white" font-family="Arial, sans-serif" font-weight="bold">PDF</text>
+                                </svg>
+                            </td>
+                        @else
+                            <td>Tidak ada panduan</td>
+                        @endif
+                        
+                        @if ($value->video_panduan != null)
+                            <td>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4 2h10l6 6v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#2196f3"/>
+                                    <path d="M14 2v6h6" fill="#1976d2"/>
+                                    <text x="6" y="17" font-size="6" fill="white" font-family="Arial, sans-serif" font-weight="bold">MP4</text>
+                                </svg>
+                            </td>
+                            
+                        @else
+                            <td>Tidak ada video</td>
+                        @endif
+
+                        
                         <td>{{ $value->video_panduan }}</td>
                         <td>
                             <div class="d-flex gap-1">

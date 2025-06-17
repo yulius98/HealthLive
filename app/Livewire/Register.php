@@ -31,17 +31,20 @@ class Register extends Component
             'password' => Hash::make($this->password),
             'role' => $this->role,
         ];
-        User::create($dtuser);
 
-        $id_pelanggan = User::where('email','=', $this->email)
-                        ->first();
+        if ($this->role == 'user'){
+            User::create($dtuser);
+            $id_pelanggan = User::where('email','=', $this->email)
+                            ->first();
 
-        $dtprogpelanggan = [
-            'id_pelanggan' => $id_pelanggan->id,
-            'id_paket' => $this->id_paket,
-        ];
-        
-        TblProgramPelanggan::create($dtprogpelanggan);
+            $dtprogpelanggan = [
+                'id_pelanggan' => $id_pelanggan->id,
+                'id_paket' => $this->id_paket,
+            ];
+            TblProgramPelanggan::create($dtprogpelanggan);    
+        } else {
+            User::create($dtuser);
+        }
         
         session()->flash('message', 'Registration successful!');
     }
