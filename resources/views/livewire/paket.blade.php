@@ -141,9 +141,6 @@
                         @else
                             <td>Tidak ada video</td>
                         @endif
-
-                        
-                        <td>{{ $value->video_panduan }}</td>
                         <td>
                             <div class="d-flex gap-1">
                                 <a wire:click="edit({{ $value->id }})" class="btn btn-warning btn-sm">Edit</a>

@@ -13,11 +13,11 @@
                   <h2 class="card-title fw-bold font-medium">{{ $pelanggan->nama_paket }}</h2>
                   <h3 class="card-subtitle mb-3 ">Nama Pelanggan : {{ $pelanggan->nama }}</h3>
                   <div class="mt-auto">
-                    <a href="href={{ Storage::url($pelanggan->panduan_paket) }}" class="btn btn-primary me-2 mb-2 d-inline-flex align-items-center">
+                    <a href="{{ Storage::url($pelanggan->panduan_paket) }}" download class="btn btn-primary me-2 mb-2 d-inline-flex align-items-center">
                       <i class="far fa-file-pdf me-2"></i> PANDUAN PROGRAM (PDF)
                     </a>
-                    <a  class="btn btn-primary mb-2 d-inline-flex align-items-center">
-                      <i class="far fa-file-pdf me-2"></i> PANDUAN VIDEO (MP4)
+                    <a href="{{ Storage::url($pelanggan->video_panduan) }}" download class="btn btn-primary mb-2 d-inline-flex align-items-center">
+                      <i class="far fa-file-video me-2"></i> PANDUAN VIDEO (MP4)
                     </a>
                   </div>
                 </div>
@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-20 d-flex justify-content-center align-items-center">
         <video controls class="rounded shadow w-100 h-auto">
-          <source src="path_to_video.mp4" type="video/mp4">
+          <source src="{{ Storage::url($dtprogpelanggan->last()->video_panduan) }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
