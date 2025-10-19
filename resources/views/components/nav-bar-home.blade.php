@@ -9,7 +9,7 @@
                 <li class="nav-item"><a class="nav-link me-lg-3" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="/cekgratis">Cek Gratis</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Tentang Detox</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="https://wa.me/+6281393979120" target="_blank" class="btn contact-btn"><i class="bi bi-whatsapp me-2"></i>Hubungi Kami</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3" href="https://wa.me/+6282141609391" target="_blank" class="btn contact-btn"><i class="bi bi-whatsapp me-2"></i>Hubungi Kami</a></li>
             </ul>
             <a href="/Login" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" >
                 <span class="d-flex align-items-center">

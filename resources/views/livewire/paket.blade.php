@@ -99,7 +99,7 @@
     <div class=" my-4 p-3 bg-body rounded shadow-sm">
         <h4 class="font-medium">Data Paket</h4>
         {{ $dtpaket->links() }}
-        <table class="table table-striped table-sortable">
+        <table>
             <thead>
                 <tr>
                     <th class="col-md-1">No</th>
@@ -108,17 +108,27 @@
                     <th class="col-md-3">Keterangan</th>
                     <th class="col-md-3">Panduan Paket</th>
                     <th class="col-md-3">Video Paket</th>
+                    <th class="col-md-3">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($dtpaket as $key => $value)
                     <tr>
-                        <td>{{ $dtpaket->firstitem() + $key }}</td>
-                        <td>{{ $value->nama_paket }}</td>
-                        <td>{{ $value->harga }}</td>
-                        <td>{{ $value->deskripsi }}</td>
+                        <td data-label = "No">{{ $dtpaket->firstitem() + $key }}</td>
+                        <td data-label="Nama Paket">{{ $value->nama_paket }}</td>
+                        @if ( $value->harga != null )
+                            <td data-label = "Harga">Rp. {{number_format( (float)$value->harga,2,',','.' )}}</td>
+                        @else
+                            <td data-label = "Harga">0</td>
+                        @endif
+                        @if ($value->deskripsi != null)
+                            <td data-label = "Keterangan">{{ Str::limit( $value->deskripsi,10 )}}</td>
+                        @else
+                            <td data-label = "Keterangan">n/a</td>
+                        @endif
+                        
                         @if ($value->panduan_paket != null)
-                            <td>
+                            <td data-label ="Panduan Paket">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M4 2h10l6 6v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#f44336"/>
                                     <path d="M14 2v6h6" fill="#c62828"/>
@@ -126,11 +136,11 @@
                                 </svg>
                             </td>
                         @else
-                            <td>Tidak ada panduan</td>
+                            <td data-label ="Panduan Paket">Tidak ada panduan</td>
                         @endif
                         
                         @if ($value->video_panduan != null)
-                            <td>
+                            <td data-label = "Video Paket">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M4 2h10l6 6v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#2196f3"/>
                                     <path d="M14 2v6h6" fill="#1976d2"/>
@@ -139,9 +149,9 @@
                             </td>
                             
                         @else
-                            <td>Tidak ada video</td>
+                            <td data-label = "Video Paket">Tidak ada video</td>
                         @endif
-                        <td>
+                        <td data-label = "Aksi">
                             <div class="d-flex gap-1">
                                 <a wire:click="edit({{ $value->id }})" class="btn btn-warning btn-sm">Edit</a>
                                 <a wire:click="konfimasihapus({{ $value->id }})" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Del</a>

@@ -123,14 +123,14 @@
                 <input type="text" class="form-control mb-3 w-25" placeholder="Search..." wire:model.live="cari">
             </div>
             {{ $dtbarang->links() }}
-            <table class="table table-striped table-sortable ">
+            <table>
                 <thead>
                     <tr>
                         <th class="col-md-1">No</th>
                         <th class="col-md-4 sort" @if ($sortcolom == 'nama_product') {{ $sortdirection }} @endif wire:click="sort('nama_product')">Nama Barang</th>
                         <th class="col-md-2 sort" >Harga</th>
                         <th class="col-md-2 sort" >Discount</th>
-                        <th class="col-md-2 sort" >Harga Diskon</th>
+                        <th class="col-md-2 sort" >Harga Discount</th>
                         <th class="col-md-2 sort" >Keterangan</th>
                         <th class="col-md-2 sort" >Gambar</th>
                         <th class="col-md-2">Aksi</th>
@@ -140,17 +140,22 @@
                     
                     @foreach ($dtbarang as $key => $value)
                     <tr>
-                        <td>{{ $dtbarang->firstItem() + $key }}</td>
-                        <td>{{ $value->nama_product  }}</td>
-                        <td>{{ $value->harga }}</td>
-                        <td>{{ $value->discount }}</td>
-                        <td>{{ $value->harga_diskon }}</td>
-                        <td>{{ $value->description }}</td>
-                        <td><img src="{{ asset('storage/'.$value->image) }}" alt="Gambar Barang" class="p-0.5 object-contain rounded" 
+                        <td data-label = "No">{{ $dtbarang->firstItem() + $key }}</td>
+                        <td data-label = "Nama Barang">{{ $value->nama_product  }}</td>
+                        <td data-label = "Harga">Rp. {{number_format((float) $value->harga,2,',','.' )}}</td>
+                        <td data-label = "Discount">{{ $value->discount }}</td>
+                        @if ( $value->harga_diskon != null )
+                            <td data-label = "Harga Discount">Rp. {{number_format( (float)$value->harga_diskon,2,',','.') }}</td>    
+                        @else
+                            <td data-label = "Harga Discount">0</td>
+                        @endif
+                        
+                        <td data-label = "Keterangan">{{ Str::limit( $value->description,20) }}</td>
+                        <td data-label = "Gambar"><img src="{{ asset('storage/'.$value->image) }}" alt="Gambar Barang" class="p-0.5 object-contain rounded" 
                                     style="width: 60px; height: 60px;"></td>
-                        <td>
+                        <td data-label = "Aksi">
                             <div class="d-flex gap-1">
-                                <a wire:click="show_detail({{ $value->id }})" class="btn btn-warning btn-sm">Detail</a>
+                                {{--<a wire:click="show_detail({{ $value->id }})" class="btn btn-warning btn-sm">Detail</a> --}}
                                 <a wire:click="edit({{ $value->id }})" class="btn btn-warning btn-sm">Edit</a>
                                 <a wire:click="konfimasihapus({{ $value->id }})" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Del</a>
                             </div>

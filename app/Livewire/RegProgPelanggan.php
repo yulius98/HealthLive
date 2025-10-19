@@ -77,8 +77,9 @@ class RegProgPelanggan extends Component
         $dtpaketpelanggan = TblProgramPelanggan::join('tbl_pakets as paket', 'paket.id', '=', 'tbl_program_pelanggans.id_paket')
             ->join('users as pelanggan', 'pelanggan.id', '=', 'tbl_program_pelanggans.id_pelanggan')
             ->select('tbl_program_pelanggans.*', 'paket.*', 'pelanggan.*')
+            ->where('nama','like','%'.$this->cari.'%')
             ->paginate(10);
-        
+        //dd($dtpaketpelanggan);
 
         $dtpelanggan = User::doesntHave('programpelanggan')
             ->where('role', 'user')

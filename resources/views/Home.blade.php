@@ -112,28 +112,30 @@
   <section class="bg-light">
     <div class="bg-[rgb(221,194,175)] pt-0"> <!-- Added div for search results -->
       <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8 "> <!-- Increased padding -->
-        <h2 class=" text-4xl font-bold tracking-tight text-black mt-0 text-left">Best Seller</h2> <!-- Added mb-6 for better spacing -->
+        <h2 class=" text text-4xl font-bold tracking-tight text-black mt-0 text-left">Best Seller</h2> <!-- Added mb-6 for better spacing -->
       </div>
-        <div class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 sm:mt-4 lg:mx-0 lg:max-w-none">
-        @foreach ($dtproduct as $product)
-            <div class="group relative border border-gray-200 shadow-xl rounded-lg p-4 hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
-                    <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}" class="h-full w-full object-cover object-center">
-                </div>
-                <h5 class="mt-4 text-sm text-gray-700">{{ $product->nama_product }}</h5>
-                <span class="block text-sm text-gray-500">{{ $product->description }}</span>
-                @if ($product->discount == "yes")
-                    <div class="flex items-center gap-8">
-                        <h4 class="text-base font-bold  text-green-500 line-through" style=" font-size: medium; background-color: rgb(37, 217, 14);" ><del>Rp {{ number_format((float)$product->harga, 0, ',', '.') }}</del></h4>
-                        <h5 class=" text-lg font-bold text-black">Rp {{ number_format((float)$product->harga_diskon, 0, ',', '.') }}</h5>
+
+        <div class="card-grouphome" role="list">
+            @foreach ($dtproduct as $product)
+                <article class="cardhome">
+                    <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}" >
+                    <div class="layerhome"></div>
+                    <div class="infohome">
+                        <h3home>{{ $product->nama_product }}</h3home>
+                        <p>{{ Str::limit($product->description,100) }}<p>
+                        @if ($product->discount == "yes")
+                                <h4home><del>Rp {{ number_format((float)$product->harga, 2, ',', '.') }}</del></h4home>
+                                <h5home>Rp {{ number_format((float)$product->harga_diskon, 2, ',', '.') }}</h5home>
+                            
+                        @else
+                            <h5home>Rp {{ number_format((float)$product->harga, 2, ',', '.') }}</h5home>    
+                        @endif
                     </div>
-                @else
-                    <h4 class="text-base font-medium text-black">Rp {{ number_format((float)$product->harga, 0, ',', '.') }}</h4>    
-                @endif
-                {{--<p class="mt-1 text-lg font-medium text-gray-900">Rp. {{ number_format($product->harga, 0, ',', '.') }}</p> --}}
-            </div>
-        @endforeach
+                    
+                </article>
+            @endforeach
         </div>
+
     </div>
 </section>
   

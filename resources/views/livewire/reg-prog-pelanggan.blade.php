@@ -26,7 +26,7 @@
         <h4 class="font-medium">Data Pelanggan yang Belum Memiliki Paket</h4>
         
         {{ $dtpelanggan->links() }}
-        <table class="table table-striped table-sortable ">
+        <table>
             <thead>
                 <tr>
                     <th class="col-md-1">No</th>
@@ -39,9 +39,9 @@
                 
                 @foreach ($dtpelanggan as $key => $value)
                 <tr>
-                    <td>{{ $dtpelanggan->firstItem() + $key }}</td>
-                    <td>{{ $value->nama  }}</td>
-                    <td>
+                    <td data-label = "No">{{ $dtpelanggan->firstItem() + $key }}</td>
+                    <td data-label = "Nama">{{ $value->nama  }}</td>
+                    <td data-label = "Aksi">
                         <div class="d-flex gap-1">
                             <a wire:click="edit_pelanggan({{ $value->id }})" class="btn btn-warning btn-sm">Edit</a>
                         </div>
@@ -123,7 +123,7 @@
             <input type="text" class="form-control mb-3 w-25" placeholder="Search..." wire:model.live="cari">
         </div>
         {{ $dtpaketpelanggan->links() }}
-        <table class="table table-striped table-sortable ">
+        <table>
             <thead>
                 <tr>
                     <th class="col-md-1">No</th>
@@ -136,10 +136,10 @@
                 
                 @foreach ($dtpaketpelanggan as $key => $value)
                 <tr>
-                    <td>{{ $dtpaketpelanggan->firstItem() + $key }}</td>
-                    <td>{{ $value->nama  }}</td>
-                    <td>{{ $value->nama_paket }}</td>
-                    <td>
+                    <td data-label = "No">{{ $dtpaketpelanggan->firstItem() + $key }}</td>
+                    <td data-label = "Pelanggan">{{ $value->nama  }}</td>
+                    <td data-label = "Paket">{{ $value->nama_paket }}</td>
+                    <td data-label = "Aksi">
                         <div class="d-flex gap-1">
                             <a wire:click="edit({{ $value->id }})" class="btn btn-warning btn-sm">Edit</a>
                         </div>
