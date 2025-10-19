@@ -1,61 +1,234 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏥 HealthLive - Sistem Manajemen Kesehatan & Gizi
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Laravel-11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+  <img src="https://img.shields.io/badge/Livewire-3.0-4E56A6?style=for-the-badge&logo=livewire&logoColor=white" alt="Livewire">
+  <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
 </p>
 
-## About Laravel
+<p align="center">
+  <strong>🌟 Platform komprehensif untuk manajemen kesehatan dan gizi dengan fitur assessment BMI otomatis, program diet personalisasi, dan sistem manajemen pelanggan yang terintegrasi.</strong>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Tentang Health Life
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Health Life adalah aplikasi web modern yang dibangun dengan Laravel 11 dan Livewire untuk memberikan solusi komprehensif dalam manajemen kesehatan dan gizi. Aplikasi ini dirancang untuk membantu individu dan profesional kesehatan dalam mengelola program diet, melakukan assessment kesehatan, dan menyediakan layanan konsultasi gizi yang efektif.
 
-## Learning Laravel
+### 🎯 **Fitur Utama:**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **🔍 Assessment Kesehatan Gratis** - Sistem kalkulasi BMI otomatis dengan analisis tingkat aktivitas
+- **📊 Dashboard Admin Lengkap** - Manajemen data pelanggan, produk, dan program kesehatan
+- **🍎 Manajemen Barang/Produk** - Katalog produk kesehatan dan suplemen
+- **📦 Paket Program Diet** - Program diet terstruktur dengan panduan video
+- **👥 Registrasi Program Pelanggan** - Sistem pendaftaran dan tracking progress
+- **🔐 Sistem Autentikasi** - Login/logout aman untuk admin dan pelanggan
+- **📱 Interface Responsif** - Akses mudah dari desktop dan mobile
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🚀 Cara Menggunakan Aplikasi
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📋 **Prasyarat Sistem**
+```bash
+- PHP >= 8.2
+- Composer >= 2.0
+- Node.js >= 18.0
+- MySQL >= 8.0
+- Laravel >= 11.0
+```
 
-## Laravel Sponsors
+### ⚙️ **Instalasi & Setup**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/yulius98/HealthLive.git
+   cd HealthLive
+   ```
 
-### Premium Partners
+2. **Install Dependencies**
+   ```bash
+   composer install
+   npm install
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+3. **Environment Setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Contributing
+4. **Database Configuration**
+   ```bash
+   # Edit file .env sesuai database Anda
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=healthlife
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. **Migrasi Database**
+   ```bash
+   php artisan migrate
+   php artisan db:seed
+   ```
 
-## Code of Conduct
+6. **Build Assets & Jalankan Server**
+   ```bash
+   npm run build
+   php artisan serve
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 🎯 **Panduan Penggunaan**
 
-## Security Vulnerabilities
+#### **Untuk Pengguna/Pelanggan:**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. **🔍 Cek Kesehatan Gratis**
+   - Akses halaman `/cekgratis`
+   - Isi data: nama, no HP, berat badan, tinggi badan
+   - Pilih tingkat aktivitas (jarang/sedang/aktif)
+   - Tentukan status alergi
+   - Sistem akan menghitung BMI dan memberikan rekomendasi
 
-## License
+2. **📱 Dashboard Pelanggan**
+   - Login melalui `/Login`
+   - Akses program diet yang diikuti
+   - Monitor progress kesehatan
+   - Lihat rekomendasi produk
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### **Untuk Administrator:**
+
+1. **📊 Dashboard Admin**
+   - Login sebagai admin
+   - Akses berbagai modul: Barang, Paket, Assessment, Registrasi
+
+2. **🛍️ Manajemen Barang**
+   - Tambah/edit produk kesehatan
+   - Set harga dan deskripsi
+   - Upload gambar produk
+
+3. **📦 Manajemen Paket Diet**
+   - Buat program diet terstruktur
+   - Upload panduan dan video
+   - Set durasi dan target program
+
+4. **👥 Manajemen Pelanggan**
+   - Monitor registrasi pelanggan
+   - Tracking progress program
+   - Generate laporan assessment
+
+## 🔮 Fitur Masa Depan (Roadmap)
+
+### 🚀 **Phase 1 - Core Enhancement**
+- [ ] **📊 Analytics Dashboard** - Grafik progress BMI dan statistik kesehatan
+- [ ] **📧 Email Notifications** - Reminder program diet dan follow-up
+- [ ] **💬 Chat Support** - Live chat dengan konsultan gizi
+- [ ] **📱 Mobile App** - Aplikasi mobile native (Android/iOS)
+
+### 🌟 **Phase 2 - Advanced Features**
+- [ ] **🤖 AI Nutrition Assistant** - Rekomendasi makanan berbasis AI
+- [ ] **📷 Food Scanner** - Scan barcode untuk info nutrisi
+- [ ] **🏃 Activity Tracker Integration** - Sinkronisasi dengan fitness tracker
+- [ ] **👨‍⚕️ Telemedicine** - Video call dengan dokter/nutritionist
+
+### 🎯 **Phase 3 - Enterprise Features**
+- [ ] **🏢 Multi-tenant System** - Support untuk multiple klinik
+- [ ] **📈 Business Intelligence** - Advanced reporting dan analytics
+- [ ] **🔗 API Integration** - Integrasi dengan sistem eksternal
+- [ ] **🌐 Multi-language Support** - Dukungan bahasa internasional
+
+### 💡 **Fitur Inovatif yang Direncanakan**
+
+#### **🍽️ Smart Meal Planning**
+- Perencanaan menu otomatis berdasarkan BMI dan preferensi
+- Integrasi dengan grocery list dan delivery service
+- Tracking kalori real-time dengan barcode scanner
+
+#### **🏥 Health Monitoring**
+- Integrasi dengan wearable devices (smartwatch, fitness band)
+- Monitoring vital signs (detak jantung, tekanan darah)
+- Alert system untuk parameter kesehatan abnormal
+
+#### **🎓 Educational Platform**
+- Video course nutrition dan wellness
+- Webinar dengan expert nutritionist
+- Community forum untuk sharing pengalaman
+
+#### **💊 Supplement Tracking**
+- Reminder konsumsi suplemen
+- Tracking efektivitas suplemen
+- Drug interaction checker
+
+## 🛠️ Tech Stack & Arsitektur
+
+### **Backend Technologies**
+- **Laravel 11** - PHP Framework dengan Eloquent ORM
+- **Livewire 3.0** - Real-time UI components tanpa JavaScript
+- **MySQL 8.0** - Database relational dengan high performance
+- **PHP 8.2** - Bahasa pemrograman dengan fitur modern
+
+### **Frontend Technologies**
+- **Blade Templates** - Laravel templating engine
+- **Tailwind CSS** - Utility-first CSS framework
+- **Alpine.js** - Lightweight JavaScript framework
+- **Vite** - Frontend build tool yang cepat
+
+### **Key Features Implementation**
+```php
+// BMI Calculation Algorithm
+$tinggi_meter = $tinggi_badan / 100;
+$bmi = $berat_badan / ($tinggi_meter * $tinggi_meter);
+
+// Activity Level Adjustment
+if ($aktivitas == 'jarang') $bmi -= 0.5;
+elseif ($aktivitas == 'aktif') $bmi += 0.5;
+
+// Health Status Classification
+if ($bmi < 18.5) $status = 'underweight';
+elseif ($bmi >= 18.5 && $bmi < 24.9) $status = 'normal';
+else $status = 'overweight';
+```
+
+## 🤝 Contributing
+
+Kami menyambut kontribusi dari komunitas! Berikut cara untuk berkontribusi:
+
+1. **Fork** repository ini
+2. **Create** feature branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to branch (`git push origin feature/AmazingFeature`)
+5. **Open** Pull Request
+
+### 📝 **Contribution Guidelines**
+- Ikuti PSR-12 coding standards
+- Tulis test untuk fitur baru
+- Update dokumentasi jika diperlukan
+- Pastikan CI/CD pipeline berhasil
+
+## 🔒 Security & Privacy
+
+- Data pelanggan dienkripsi menggunakan Laravel Encryption
+- Password menggunakan bcrypt hashing
+- Session management dengan secure cookies
+- Input sanitization untuk mencegah XSS/SQL Injection
+- CSRF protection pada semua form
+
+## 📞 Support & Contact
+
+- **📧 Email**: healthlive.support@gmail.com
+- **🐛 Bug Reports**: [GitHub Issues](https://github.com/yulius98/HealthLive/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/yulius98/HealthLive/discussions)
+- **📖 Documentation**: [Wiki Pages](https://github.com/yulius98/HealthLive/wiki)
+
+## 📄 License
+
+Aplikasi HealthLive dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+<p align="center">
+  <strong>💚 Dibuat dengan ❤️ untuk kesehatan yang lebih baik</strong><br>
+  <em>HealthLive - Your Partner in Healthy Living</em>
+</p>
